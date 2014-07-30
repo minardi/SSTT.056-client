@@ -8,6 +8,10 @@
         
         template: JST['app/scripts/TeamMembers/TeamMembersTpl.ejs'],
         
+		events: {
+		    "click": "showTeamMemberInfo"
+		},
+		
         initialize: function() {
             this.model.on("change", this.show, this);
             this.model.once("sync", this.saveRole, this);
@@ -42,7 +46,12 @@
             this.show();
 
             return this;
-        }
+        },
+				
+		showTeamMemberInfo: function () {
+		    mediator.pub("TeamMember:Selected", this.model, "user_project_info");
+		}
+		
 
     });
     

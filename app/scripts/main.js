@@ -21,7 +21,10 @@ var sstt = {
         DatePicker: {},
         Statistics: {},
         Confirmation: {},
-        Chart: {},
+		UserInfo:{},
+		InfoBlock:{},
+        Chart: 
+		
         empty: {}
     };
 

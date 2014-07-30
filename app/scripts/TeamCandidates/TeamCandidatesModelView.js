@@ -17,7 +17,8 @@
         },
 		
 		 events: {
-            "click": "setTeamMember" 
+            "dbclick": "setTeamMember", 
+			"click" : "showUserInfo"
         },
 
         initialize: function() {
@@ -28,15 +29,25 @@
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         },
+		
+		renderUser: function () {
+		    this.template(this.model.toJSON());
+            return this;
+		},
 
         setTeamMember: function() {
             this.model.set("role", this.role);
             mediator.pub("TeamCandidates:SetTeamMember", this.model.formTeamMember()); 
-			},
+		},
 
         setRole: function(current_role) { 
             this.role = current_role;
-        }
+        },
+		
+		showUserInfo: function () {
+		    mediator.pub("TeamMember:Selected", this.model, "user_info");
+		}
+		
     });
 
 })(app.TeamCandidates);

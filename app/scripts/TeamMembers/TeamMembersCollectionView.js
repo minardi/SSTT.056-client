@@ -13,7 +13,7 @@
         },
 
         events: {
-            "click #save": "showConfirm",
+            "click #save": "showConfirm"			
         },
 
         initUsers: function(team_info) {
@@ -86,4 +86,3 @@
     });
 
 })(app.TeamMembers, sstt);
-

@@ -7,7 +7,7 @@
         template: JST['app/scripts/TeamCandidates/TeamCandidatesCollectionTpl.ejs'],
 		
 		subscriptions: {
-			"TeamEditPage:Open": "initTeamCandidates",
+			"TeamEditPage:Open": "initTeamCandidates"
 		},
 
 		initTeamCandidates: function(data) {             

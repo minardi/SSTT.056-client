@@ -1,3 +1,3 @@
 /* ProductBacklog*/
 
-app.ProductBacklog.Collection = app.BacklogItem.Collection
+app.ProductBacklog.Collection = app.BacklogItem.Collection;

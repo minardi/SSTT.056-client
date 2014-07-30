@@ -1,1 +1,1 @@
-app.SprintBacklog.Collection = app.BacklogItem.Collection
+app.SprintBacklog.Collection = app.BacklogItem.Collection;

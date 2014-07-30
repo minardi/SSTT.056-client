@@ -8,7 +8,7 @@ app.User = (function(sstt, content) {
 
     Model = Backbone.Model.extend({       
 
-        url: "/roles/for-user",
+        url: "/team-members",
         
         defaults: {
             "first_name": "",
@@ -37,7 +37,7 @@ app.User = (function(sstt, content) {
         render: function() {                
             this.$el.html(this.template(this.model.toJSON())); 
         },
-
+	
         updateRoles: function() {
             this.model.once("change", this.updateRoleInProject, this)
                 .fetch();

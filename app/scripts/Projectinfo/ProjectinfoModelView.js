@@ -19,15 +19,15 @@
 
         render: function(model, type) {
             var template = this.template[type];
-
+	
             this.$el.html(template(model.toJSON()));
 			
-            return this;
+			return this;
         },
 		
 		changeInfo: function() {
 		    this.$el.html("Please select item");
-		}
+		}	
   });
     
 })(app.Projectinfo);
