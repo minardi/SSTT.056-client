@@ -50,7 +50,7 @@
             });
 
             sstt.confirmation.popup({
-                message: "Role has changed"
+                message: "The Role has changed"
             });
 
         },
@@ -58,7 +58,7 @@
         showConfirm: function() {
             sstt.confirmation.confirm({
                 title: "Are You sure?",
-                message: "Do You really want to change role of this member?",
+                message: "Do You really want to change the role of this member?",
                 confirmCallback: _.bind(this.saveCollection, this)
             });
         },
