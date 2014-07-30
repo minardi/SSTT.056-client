@@ -65,6 +65,7 @@
 
         setRole: function(new_role) {
             this.role = new_role;
+            this.render();
         },
       
         addToCollection: function(candidate) {
