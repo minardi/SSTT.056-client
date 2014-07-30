@@ -72,7 +72,7 @@
 			}
 			
 			sstt.confirmation.popup({
-					message: "Story has been removed."
+					message: "The Story has been removed"
 				});
 
         },
@@ -86,8 +86,8 @@
 		
 			if (this.selected) {
 				sstt.confirmation.confirm({
-						title: "Delete Story?",
-						message: "Are You sure You want to delete Story??",
+					        title: "Delete the Story?",
+                                                message: "Are You sure You want to delete the Story?",
 						confirmCallback: (function(obj) {
 							return function() {
 								obj.removeStory();
