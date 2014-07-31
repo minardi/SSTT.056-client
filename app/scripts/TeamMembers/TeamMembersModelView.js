@@ -17,6 +17,10 @@
         subscriptions: {
             "TeamEditPage:roleSetUp": "setRole"
         },
+        
+        events: {
+            "dblclick" : "deleteRole"
+        },
        
         show: function() {
             this.canRender() ? this.$el.removeClass('hide'): 
@@ -35,6 +39,11 @@
         setRole: function(new_role) {
             this.role = new_role;
             this.show();
+        },
+        
+        deleteRole: function () {
+            mediator.pub("TeamMembers:DeleteRole", this.model);
+            this.model.set("role", " ");
         },
 
         render: function() {

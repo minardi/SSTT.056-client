@@ -13,11 +13,12 @@
         template: JST['app/scripts/TeamCandidates/TeamCandidatesTpl.ejs'],   
 		
 		subscriptions: {
-            "TeamEditPage:RoleSetUp": "setRole" 
+            "TeamEditPage:RoleSetUp": "setRole",
+            "TeamMembers:DeleteRole": "deleteRole"
         },
 		
-		 events: {
-            "click": "setTeamMember" 
+		events: {
+            "dblclick": "setTeamMember" 
         },
 
         initialize: function() {
@@ -36,6 +37,10 @@
 
         setRole: function(current_role) { 
             this.role = current_role;
+        },
+        
+        deleteRole: function () {
+            this.model.set("role", "");
         }
     });
 
