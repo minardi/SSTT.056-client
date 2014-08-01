@@ -63,7 +63,7 @@
         },
 		
 
-		TaskClick: function () {
+		TaskClick: function (e) {
             e.stopPropagation();
 			mediator.pub("ScrumBoard:TaskClick", this.model);
 		}
