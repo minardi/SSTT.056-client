@@ -8,13 +8,12 @@
 
         className: "user-box",
         
-        role: "watcher", 
+        role: "developer", 
 
         template: JST['app/scripts/TeamCandidates/TeamCandidatesTpl.ejs'],   
 		
 		subscriptions: {
-            "TeamEditPage:RoleSetUp": "setRole",
-            "TeamMembers:DeleteRole": "deleteRole"
+            "TeamEditPage:RoleSetUp": "setRole"
         },
 		
 		events: {
@@ -39,10 +38,6 @@
         setRole: function(current_role) { 
             this.role = current_role;
         },
-        
-        deleteRole: function () {
-            this.model.set("role", "");
-        }, 
 		
 		showUserInfo: function () {
 			mediator.pub("TeamMember:Selected", this.model);

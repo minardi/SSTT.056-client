@@ -27,10 +27,16 @@
 		},
 		
 		infoTask: function (info_model) {
-			this.showInfo(new app.TaskInfo.ModelView ({
-				model: info_model
-			}));
+			this.currentBlock.remove && this.currentBlock.remove();
+			this.currentBlock = new app.TaskInfo.ModelView ({
+				model: info_model,
+			});
+
+			mediator.pub("TaskInfo: getSprintName");
+
+			this.$el.html(this.currentBlock.render().el);
 		},
+
 		
 		teamInfo: function (info_model) {
 			this.showInfo(new app.TeamInfo.ModelView ({
