@@ -13,22 +13,22 @@
     <script>
         <% if user_signed_in? %>
             var current_user_content = {
-                id: <%= current_user.id %>,
-                first_name: "<%= current_user.first_name %>",
-                last_name: "<%= current_user.last_name%>",
-                roles: <%= @roles.to_s.html_safe %>
-   			}<% if @users_projects %>,    
-				current_projects = [ 
-					<% n = @users_projects.size %>
-					<% i = 0 %>
-					<% @users_projects.each do |proj| %>
-						<% i = i+1 %>				
-						<%= proj.html_safe %><% if i < n %>,<% end %>
-						<% end %> 
-				]<% end %>;
+					id: <%= current_user.id %>,
+					first_name: "<%= current_user.first_name %>",
+					last_name: "<%= current_user.last_name%>",
+					roles: <%= @roles.to_s.html_safe %>
+				}<% if @users_projects %>,    
+					current_projects = [ 
+						<% n = @users_projects.size %>
+						<% i = 0 %>
+						<% @users_projects.each do |proj| %>
+							<% i = i+1 %>				
+							<%= proj.html_safe %><% if i < n %>,<% end %>
+							<% end %> 
+					]<% end %>;
         <% end %>
     </script>
-    
+
     <% if user_signed_in? && request.path == '/' %>
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -69,10 +69,6 @@
         <!-- module BacklogItem-->
         <script src="scripts/BacklogItem/BacklogItemModel.js"></script>
         <script src="scripts/BacklogItem/BacklogItemCollection.js"></script>
-		
-		<!-- module InfoBlock-->
-		<script src="scripts/InfoBlock/InfoBlockModel.js"></script>
-		<script src="scripts/InfoBlock/InfoBlockModelView.js"></script>
         
         <!-- module ProductBacklog-->
         <script src="scripts/ProductBacklog/ProductBacklogModel.js"></script>
@@ -90,13 +86,9 @@
         <script src="scripts/ScrumPage/ScrumPageModel.js"></script>
         <script src="scripts/ScrumPage/ScrumPageModelView.js"></script>
 
-        <!-- module ProjectInfo-->
+        <!-- module Projectinfo-->
         <script src="scripts/Projectinfo/ProjectinfoModel.js"></script>
         <script src="scripts/Projectinfo/ProjectinfoModelView.js"></script>
-
-        <!-- module BacklogItemInfo-->
-        <script src="scripts/BacklogItemInfo/BacklogItemInfoModel.js"></script>
-        <script src="scripts/BacklogItemInfo/BacklogItemInfoModelView.js"></script>
 
          <!-- module ScrumBoard-->
         <script src="scripts/ScrumBoard/ScrumBoardModel.js"></script>
@@ -109,10 +101,6 @@
         <script src="scripts/ContextMenu/ContextMenuCollection.js"></script>
         <script src="scripts/ContextMenu/ContextMenuModelView.js"></script>
         <script src="scripts/ContextMenu/ContextMenuCollectionView.js"></script>
-		
-		<!-- module TaskInfo-->
-		<script src="scripts/TaskInfo/InfoTaskModel.js"></script>
-		<script src="scripts/TaskInfo/InfoTaskModelView.js"></script>
          
         <!-- module TeamEditPage-->
         <script src="scripts/TeamEditPage/TeamEditPageModel.js"></script>

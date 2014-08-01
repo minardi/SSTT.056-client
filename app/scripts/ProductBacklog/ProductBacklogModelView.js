@@ -56,7 +56,7 @@
 
         storySelected: function(e) {
 			mediator.pub("module:UnitSelected", this.model, "backlog_item");
-			mediator.pub("ProductBacklog:SelectedStory");
+			mediator.pub("ProductBacklog:SelectedStory", this.model);
 
 			this.selected = true;
             this.$el.addClass('selected');
