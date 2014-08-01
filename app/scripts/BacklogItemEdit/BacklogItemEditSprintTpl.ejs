@@ -1,0 +1,23 @@
+    <span class = "title">Edit Sprint</span>
+
+    <span class = "legend">Title*:</span>
+    <input class = "input required" type = "text" name = "title" value = "<%= title %>"/>
+
+    <span class = "legend">Description:</span>
+    <textarea class = "input" size = 300 name = "description"></textarea>
+
+    <div class="input-daterange">
+
+        <span class = "legend">Start*:</span>
+        <input class = "input start-date required calendar" type = "text" name = "start" readonly="true" />
+
+        <span class = "legend">End*:</span>
+        <input class = "input end-date required calendar" type = "text" name = "end" readonly="true" />
+
+    </div>
+    
+    <div class = "save_button btn btn-default">Start sprint</div>
+    <div class = "cancel_button btn btn-default">Cancel</div>
+
+    <div class = "error-box"></div>
+

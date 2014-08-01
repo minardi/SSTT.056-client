@@ -1,8 +1,10 @@
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var SERVER_PORT = 9000;
-var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
+var lrSnippet = require('connect-livereload')({
+    port: LIVERELOAD_PORT
+});
+var mountFolder = function(connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
@@ -13,7 +15,8 @@ var mountFolder = function (connect, dir) {
 // 'test/spec/**/*.js'
 // templateFramework: 'lodash'
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
+
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -22,7 +25,10 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'dist'
+
+        dist: '../../server/SSTT.056/public/app',
+        view: '../../server/SSTT.056/app/views/layouts'
+
     };
 
     grunt.initConfig({
@@ -32,26 +38,34 @@ module.exports = function (grunt) {
                 nospawn: true,
                 livereload: true
             },
+            coffee: {
+                files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
+                tasks: ['coffee:dist']
+            },
+            coffeeTest: {
+                files: ['test/spec/{,*/}*.coffee'],
+                tasks: ['coffee:test']
+            },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass']
             },
             livereload: {
                 options: {
-                    livereload: grunt.option('livereloadport') || LIVERELOAD_PORT
+                    livereload: LIVERELOAD_PORT
                 },
                 files: [
-                    '<%= yeoman.app %>/*.html',
+                    '<%= yeoman.app %>/*.html.erb',
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                    '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}',
+                    '<%= yeoman.app %>/scripts/*/*.{ejs,mustache,hbs}',
                     'test/spec/**/*.js'
                 ]
             },
             jst: {
                 files: [
-                    '<%= yeoman.app %>/scripts/templates/*.ejs'
+                    '<%= yeoman.app %>/scripts/*/*.ejs'
                 ],
                 tasks: ['jst']
             },
@@ -62,13 +76,14 @@ module.exports = function (grunt) {
         },
         connect: {
             options: {
-                port: grunt.option('port') || SERVER_PORT,
+                port: SERVER_PORT,
                 // change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'
             },
             livereload: {
                 options: {
-                    middleware: function (connect) {
+
+                    middleware: function(connect) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
@@ -80,7 +95,7 @@ module.exports = function (grunt) {
             test: {
                 options: {
                     port: 9001,
-                    middleware: function (connect) {
+                    middleware: function(connect) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
@@ -92,7 +107,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    middleware: function (connect) {
+                    middleware: function(connect) {
                         return [
                             mountFolder(connect, yeomanConfig.dist)
                         ];
@@ -110,6 +125,7 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: ['.tmp', '<%= yeoman.dist %>/*'],
+            afterCopy: '<%= yeoman.dist %>/application.html.erb',
             server: '.tmp'
         },
         jshint: {
@@ -128,8 +144,30 @@ module.exports = function (grunt) {
             all: {
                 options: {
                     run: true,
-                    urls: ['http://localhost:<%= connect.test.options.port %>/index.html']
+                    urls: ['http://localhost:<%= connect.test.options.port %>/application.html.erb']
                 }
+            }
+        },
+        coffee: {
+            dist: {
+                files: [{
+                    // rather than compiling multiple files here you should
+                    // require them into your main .coffee file
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/scripts',
+                    src: '{,*/}*.coffee',
+                    dest: '.tmp/scripts',
+                    ext: '.js'
+                }]
+            },
+            test: {
+                files: [{
+                    expand: true,
+                    cwd: 'test/spec',
+                    src: '{,*/}*.coffee',
+                    dest: '.tmp/spec',
+                    ext: '.js'
+                }]
             }
         },
         compass: {
@@ -149,20 +187,43 @@ module.exports = function (grunt) {
                 }
             }
         },
-        // not enabled since usemin task does concat and uglify
-        // check index.html to edit your build targets
-        // enable this task if you prefer defining your build targets here
-        /*uglify: {
-            dist: {}
-        },*/
+
+        replace: {
+            useapp: {
+                src: ['<%= yeoman.dist %>/application.html.erb'],
+                overwrite: true,
+                replacements: [{
+                    from: 'scripts/',
+                    to: 'app/scripts/'
+                    /*CHANGE CSS PATH*/
+                }, {
+                    from: 'styles/',
+                    to: 'app/styles/'
+                }]
+            },
+
+            debug: {
+                src: ['<%= yeoman.dist %>/application.html.erb'],
+                overwrite: true,
+                replacements: [{
+                    from: 'bower_components/',
+                    to: 'app/bower_components/'
+                    /*CHANGE CSS PATH*/
+                }, {
+                    from: 'lib/',
+                    to: 'app/lib/'
+                }]
+            }
+        },
+
         useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
+            html: '<%= yeoman.app %>/application.html.erb',
             options: {
                 dest: '<%= yeoman.dist %>'
             }
         },
         usemin: {
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
+            html: ['<%= yeoman.dist %>/{,*/}*.html.erb'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             options: {
                 dirs: ['<%= yeoman.dist %>']
@@ -183,6 +244,9 @@ module.exports = function (grunt) {
                 files: {
                     '<%= yeoman.dist %>/styles/main.css': [
                         '.tmp/styles/{,*/}*.css',
+                        /* ADD BOOTSTRAP*/
+                        '<%= yeoman.app %>/bower_components/sass-bootstrap/dist/css/bootstrap.min.css',
+
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
                 }
@@ -191,20 +255,11 @@ module.exports = function (grunt) {
         htmlmin: {
             dist: {
                 options: {
-                    /*removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    //collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true*/
                 },
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: '*.html',
+                    src: 'application.html.erb',
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -217,19 +272,63 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        '*.{ico,txt}',
-                        '.htaccess',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
-                        'bower_components/sass-bootstrap/fonts/*.*'
+                    ]
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/bower_components/sass-bootstrap/',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        'fonts/*.*'
                     ]
                 }]
+            },
+            view: {
+
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.dist %>',
+                    dest: '<%= yeoman.view %>',
+                    src: 'application.html.erb'
+                }]
+
+            },
+            debug: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/scripts',
+                    dest: '<%= yeoman.dist %>/scripts',
+                    src: '**'
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/lib',
+                    dest: '<%= yeoman.dist %>/lib',
+                    src: '**'
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/bower_components',
+                    dest: '<%= yeoman.dist %>/bower_components',
+                    src: '**'
+                },  {
+                    expand: true,
+                    dot: true,
+                    cwd: ".tmp/scripts/",
+                    dest: '<%= yeoman.dist %>/scripts/',
+                    src: 'templates.js'
+                }]
             }
+
         },
         jst: {
             compile: {
                 files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
+                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/*/*.ejs']
                 }
             }
         },
@@ -248,16 +347,19 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('createDefaultTemplate', function () {
+    grunt.registerTask('createDefaultTemplate', function() {
         grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
     });
 
-    grunt.registerTask('server', function (target) {
+    grunt.registerTask('server', function() {
+
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve' + (target ? ':' + target : '')]);
+        grunt.task.run(['serve:' + target]);
     });
 
-    grunt.registerTask('serve', function (target) {
+
+    grunt.registerTask('serve', function(target) {
+
         if (target === 'dist') {
             return grunt.task.run(['build', 'open:server', 'connect:dist:keepalive']);
         }
@@ -265,17 +367,19 @@ module.exports = function (grunt) {
         if (target === 'test') {
             return grunt.task.run([
                 'clean:server',
+                'coffee',
                 'createDefaultTemplate',
                 'jst',
                 'compass:server',
                 'connect:test',
                 'open:test',
-                'watch'
+                'watch:livereload'
             ]);
         }
 
         grunt.task.run([
             'clean:server',
+            'coffee:dist',
             'createDefaultTemplate',
             'jst',
             'compass:server',
@@ -285,18 +389,21 @@ module.exports = function (grunt) {
         ]);
     });
 
-    grunt.registerTask('test', function (isConnected) {
+    grunt.registerTask('test', function(isConnected) {
         isConnected = Boolean(isConnected);
         var testTasks = [
-                'clean:server',
-                'createDefaultTemplate',
-                'jst',
-                'compass',
-                'connect:test',
-                'mocha',
-            ];
+            'clean:server',
+            'coffee',
+            'createDefaultTemplate',
+            'jst',
+            'compass',
+            'connect:test',
+            'mocha',
+            'watch:test'
+        ];
 
-        if(!isConnected) {
+        if (!isConnected) {
+
             return grunt.task.run(testTasks);
         } else {
             // already connected so not going to connect again, remove the connect:test task
@@ -305,8 +412,8 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', [
-        'clean:dist',
+    grunt.registerTask('build', [        
+        'clean',
         'createDefaultTemplate',
         'jst',
         'compass:dist',
@@ -316,9 +423,29 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
+        'copy:dist',
         'rev',
-        'usemin'
+        'usemin',
+        'replace:useapp',
+        'copy:view',
+        'clean:afterCopy'       
+    ]);
+
+    grunt.registerTask('debug', [        
+        'clean', 
+        'createDefaultTemplate', 
+        'jst', 
+        //'useminPrepare', 
+        'imagemin', 
+        'htmlmin', 
+        //'concat', 
+        'cssmin', 
+        'copy', 
+        //'rev',  
+        //'usemin', 
+        'replace', 
+        'copy:view', 
+        'clean:afterCopy'
     ]);
 
     grunt.registerTask('default', [
