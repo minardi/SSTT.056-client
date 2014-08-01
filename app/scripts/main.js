@@ -11,6 +11,7 @@ var sstt = {
 		InfoBlock: {},
         ProjectInfo: {},
 		TaskInfo: {},
+		UserInfo: {},
 		BacklogItemInfo: {},
         ContextMenu: {},
         ScrumBoard: {},

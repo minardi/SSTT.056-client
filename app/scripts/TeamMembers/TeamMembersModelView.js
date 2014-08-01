@@ -19,7 +19,8 @@
         },
         
         events: {
-            "dblclick" : "deleteRole"
+            "dblclick" : "deleteRole",
+			"click": "showUserInfo"
         },
        
         show: function() {
@@ -52,7 +53,11 @@
             this.show();
 
             return this;
-        }
+        },
+		
+		showUserInfo: function () {
+			mediator.pub("TeamMember:Selected", this.model);
+		}
 
     });
     

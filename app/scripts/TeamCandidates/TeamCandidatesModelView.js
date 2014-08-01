@@ -18,7 +18,8 @@
         },
 		
 		events: {
-            "dblclick": "setTeamMember" 
+            "dblclick": "setTeamMember",
+			"click": "showUserInfo"
         },
 
         initialize: function() {
@@ -41,7 +42,11 @@
         
         deleteRole: function () {
             this.model.set("role", "");
-        }
+        }, 
+		
+		showUserInfo: function () {
+			mediator.pub("TeamMember:Selected", this.model);
+		}		
     });
 
 })(app.TeamCandidates);

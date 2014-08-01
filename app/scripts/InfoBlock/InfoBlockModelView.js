@@ -9,13 +9,20 @@
 			"ScrumBoard:TaskClick": "infoTask",
 			"ProjectPage:ProjectChecked": "infoProject",
 			"ProductBacklog:SelectedStory": "infoBacklogItem",
- 			"module:deselectAllUnits" : "changeInfo"
+ 			"module:deselectAllUnits" : "changeInfo",
+			"TeamMember:Selected": "userInfo"
 		},
 		
 		showInfo: function (instance) {
 		    this.currentBlock.remove && this.currentBlock.remove();
 			this.currentBlock = instance;
 			this.$el.html(this.currentBlock.render().el);
+		},
+		
+		userInfo: function (info_model) {
+		this.showInfo(new app.UserInfo.ModelView ({
+				model: info_model
+			}));
 		},
 		
 		infoTask: function (info_model) {
