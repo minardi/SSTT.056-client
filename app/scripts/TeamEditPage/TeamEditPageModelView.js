@@ -24,21 +24,30 @@
             mediator.pub("TeamEditPage:Open", { element: this.$el, 
                                                 team_id: team_id 
                                                 });            
-            this.showWatchers();
+            this.showDevelopers();
 
             return this;
         },       
 
         showWatchers: function() {            
             mediator.pub("TeamEditPage:RoleSetUp", "watcher");
+            $("#watchers").css("background-color", "white");
+            $("#developers").css("background-color", "none");
+            $("#techleads").css("background-color", "none");
         },
 
         showDevelopers: function() {
             mediator.pub("TeamEditPage:RoleSetUp", "developer");
+            $("#watchers").css("background-color", "none");
+            $("#developers").css("background-color", "white");
+            $("#techleads").css("background-color", "none");
         },
 
         showTeachLeads: function() {
             mediator.pub("TeamEditPage:RoleSetUp", "techlead");
+            $("#watchers").css("background-color", "none");
+            $("#developers").css("background-color", "none");
+            $("#techleads").css("background-color", "white");
         },
 
         hideConfirm: function() {

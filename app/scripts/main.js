@@ -8,8 +8,10 @@ var sstt = {
         ScrumPage: {},
         ProductBacklog: {},
         SprintBacklog: {},
-        Projectinfo: {},
 		InfoBlock: {},
+        ProjectInfo: {},
+		TaskInfo: {},
+		BacklogItemInfo: {},
         ContextMenu: {},
         ScrumBoard: {},
         TeamEditPage: {},
@@ -46,7 +48,7 @@ $(function() {
         el: $(".b-main")
     });
 
-    sstt.project_info = new app.Projectinfo.ModelView({
+    sstt.project_info = new app.ProjectInfo.ModelView({
         el: $(".main")
     });
 

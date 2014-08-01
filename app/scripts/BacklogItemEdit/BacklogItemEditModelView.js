@@ -70,8 +70,8 @@
         showConfirm: function() {
 
             sstt.confirmation.confirm({
-                    title: "Stop Sprint?",
-                    message: "Another active sprint was found. Would You like to stop it??",
+            	    title: "Stop the Sprint?",
+                    message: "Another active sprint was found. Would You like to stop it?",
                     confirmCallback: function() {
                         mediator.pub("BacklogItemEdit:StopSprintConfirmed", true);
                         mediator.pub("BacklogItemEdit:NeedToRerenderView");

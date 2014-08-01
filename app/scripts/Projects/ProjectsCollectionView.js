@@ -1,16 +1,18 @@
 // /* Projects */
 
-(function(module, sstt) {
+(function(module, sstt, preloaded_projects) {
         
     module.CollectionView = Backbone.View.extend({
      
         template: JST['app/scripts/Projects/ProjectsCollectionTpl.ejs'],        
             
         initialize: function() {
-            this.projectsCollection = new module.Collection();
+		
+            this.projectsCollection = new module.Collection();//preloaded_projects);
             this.listenTo(this.projectsCollection, "sync", this.render);
             
             this.projectsCollection.fetch();
+			//this.render();
         },
 
         subscriptions: {
@@ -48,4 +50,4 @@
      
     });
 
-})(app.Projects, sstt);
+})(app.Projects, sstt, current_projects);
