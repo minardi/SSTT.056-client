@@ -38,7 +38,7 @@
 			mediator.pub("TaskInfo: getSprintName");
 			
 			this.$el.html(this.currentBlock.render().el);
-		}
+		},
 		
 		infoProject: function (info_model) {
 			this.showInfo(new app.ProjectInfo.ModelView ({

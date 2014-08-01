@@ -26,7 +26,7 @@ html, body {
     min-width: 560px;
     
     border-radius:0;
-    background-color: rgba(255, 255, 60, 0.7);
+    background-color: rgba(255, 255, 60, 0.3);
 }
 
  .b-header {
@@ -35,7 +35,7 @@ html, body {
     margin-bottom: 30px;
     padding-right:25px;
     text-align: right;
-
+    background: url("../images/logo.png") no-repeat;
     background-color: rgba(250,167,25,1);
    
 }

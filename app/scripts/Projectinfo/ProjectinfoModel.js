@@ -21,5 +21,5 @@
     });
 
 
-})(app.Projectinfo);
+})(app.ProjectInfo);
 

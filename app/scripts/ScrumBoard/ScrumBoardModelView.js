@@ -9,11 +9,8 @@
         events: {
             "click .arrow-left": "moveLeft",
             "click .arrow-right": "moveRight",
-<<<<<<< HEAD
-			"click": "TaskClick"
-=======
-			"click": "taskInfo"
->>>>>>> 8d639667d3924345d93d947af19523dca73b3470
+            "click": "TaskClick"
+
         },
 		
         initialize: function (init_data) {
@@ -65,15 +62,10 @@
             this.remove();
         },
 		
-<<<<<<< HEAD
+
 		TaskClick: function () {
+            e.stopPropagation();
 			mediator.pub("ScrumBoard:TaskClick", this.model);
-			
-=======
-		taskInfo: function (e) {
-			e.stopPropagation();
-			mediator.pub("ScrumBoard:TaskClick", this.model);
->>>>>>> 8d639667d3924345d93d947af19523dca73b3470
 		}
 
     });
