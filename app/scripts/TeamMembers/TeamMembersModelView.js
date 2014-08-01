@@ -43,8 +43,9 @@
         },
         
         deleteRole: function () {
-            mediator.pub("TeamMembers:DeleteRole", this.model);
-            this.model.set("role", " ");
+            mediator.pub("TeamMembers:DeleteRole", this.model.get("user_id"));
+            this.model.destroy();
+            this.$el.addClass('hide');
         },
 
         render: function() {

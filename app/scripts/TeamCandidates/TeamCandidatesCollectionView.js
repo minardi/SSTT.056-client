@@ -7,7 +7,8 @@
         template: JST['app/scripts/TeamCandidates/TeamCandidatesCollectionTpl.ejs'],
 		
 		subscriptions: {
-			"TeamEditPage:Open": "initTeamCandidates"
+			"TeamEditPage:Open": "initTeamCandidates",
+			"TeamMembers:DeleteRole": "deleteRole"
 		},
 
 		initTeamCandidates: function(data) {             
@@ -30,6 +31,17 @@
                 });
 
             this.$users_list.append(user.render().el);
+        },
+        
+        deleteRole: function (user_id) { 
+            this.collection.each(function(model) {
+                this.model = model;
+                    
+                    if(user_id === model.id){
+                        this.model.set("role", " "); 
+                    };
+
+            }, this);  
         }
     });
 

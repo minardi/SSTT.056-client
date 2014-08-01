@@ -51,13 +51,13 @@
             if (sprint.get("item_type") === 'sprint') {
 
                 sprint.save()
-                    .success(_.bind(this.sprintWasSaved, this));
+                    .success(_.bind(this.sprintWasSaved, this, sprint));
             }
         },
 
-        sprintWasSaved: function () {
+        sprintWasSaved: function (sprint) {
             this.sprint.clear()
-                .on("change", this.saveAllStories, this)
+                .on("change", function () { this.saveAllStories(sprint); }, this)
                 .fetch();
         },
 
@@ -122,7 +122,7 @@
 
         findActiveSprint: function(attributes) {
             if (this.sprint.get("status") === "active") {
-                mediator.pub("SprintBacklog:ActiveSprintWasFound", this.sprint);
+                mediator.pub("SprintBacklog:ActiveSprintWasFound", attributes);
             } else {
                 mediator.pub("SprintBacklog:NoActiveSprints", attributes);
             }

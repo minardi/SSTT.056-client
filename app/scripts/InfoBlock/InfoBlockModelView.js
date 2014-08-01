@@ -1,4 +1,6 @@
-/* infoBlock */
+
+/* InfoBlock */
+
 
 (function(module) {
         
@@ -7,11 +9,13 @@
 		currentBlock: {},
 		
         subscriptions: {
-			"TeamMember:TeamMemberSelected" : "userInfo",
-			"ScrumBoard:TaskSelected": "taskInfo",
-			"Team:TeamSelected": "teamInfo"
-        },
-
+		    "TeamMember:TeamMemberSelected" : "userInfo",
+			"ScrumBoard:TaskClick": "infoTask",
+			"ProjectPage:ProjectChecked": "infoProject",
+			"ProductBacklog:SelectedStory": "infoBacklogItem",
+ 			"module:deselectAllUnits" : "changeInfo"
+		},
+		
 		userInfo: function (infoModel) {
 		    this.currentBlock.remove && this.currentBlock.remove();
 		
@@ -22,31 +26,33 @@
 		    this.$el.html(this.currentBlock.render().el);
 		},
 		
-        taskInfo: function (infoModel) {
+		showInfo: function (instance) {
 		    this.currentBlock.remove && this.currentBlock.remove();
-			
-			this.currentBlock = new app.TaskInfo.ModelView ({
-				model: infoModel
-			});
-			
+			this.currentBlock = instance;
 			this.$el.html(this.currentBlock.render().el);
 		},
 		
-		teamInfo: function (infoModel) {
-		    this.currentBlock.remove && this.currentBlock.remove();
-			
-			this.currentBlock = new app.TaskInfo.ModelView ({
-				model: infoModel
-			});
-			
-			this.$el.html(this.currentBlock.render().el);
-		}
+		infoTask: function (info_model) {
+			this.showInfo(new app.TaskInfo.ModelView ({
+				model: info_model
+			}));
+		}, 
 		
+		infoProject: function (info_model) {
+			this.showInfo(new app.ProjectInfo.ModelView ({
+				model: info_model
+			}));
+		}, 
+		
+		infoBacklogItem: function (info_model) {
+			this.showInfo(new app.BacklogItemInfo.ModelView ({
+				model: info_model
+			}));
+		},
+		
+		changeInfo: function() {
+		    this.$el.html("Please select item");
+		}		
   });
     
 })(app.InfoBlock);
-		
-		
-		
-		
-		
