@@ -9,7 +9,8 @@
         template: JST['app/scripts/TeamMembers/TeamMembersTpl.ejs'],
         
 		events: {
-		    "click": "showTeamMemberInfo"
+		    "click": "showTeamMemberInfo",
+			"dblclick" : "deleteRole"
 		},
 		
         initialize: function() {
@@ -40,6 +41,11 @@
             this.role = new_role;
             this.show();
         },
+        
+        deleteRole: function () {
+            mediator.pub("TeamMembers:DeleteRole", this.model);
+            this.model.set("role", " ");
+        },
 
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
@@ -49,7 +55,7 @@
         },
 				
 		showTeamMemberInfo: function () {
-		    mediator.pub("TeamMember:Selected", this.model, "user_project_info");
+		    mediator.pub("TeamMember:TeamMemberSelected", this.model);
 		}
 		
 

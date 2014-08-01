@@ -187,38 +187,6 @@ __p += '\r\n\t<ul class="list-unstyled">\r\n    <li>Description: ' +
 return __p
 };
 
-this["JST"]["app/scripts/Projectinfo/UserInfoTpl.ejs"] = function(obj) {
-obj || (obj = {});
-var __t, __p = '', __e = _.escape;
-with (obj) {
-__p += '<div>\r\n    ' +
-((__t = ( first_name )) == null ? '' : __t) +
-'\r\n    ' +
-((__t = ( last_name )) == null ? '' : __t) +
-'\r\n</div>\r\n<div>\r\n    <p>Role in current project:</p>\r\n    ' +
-((__t = ( role )) == null ? '' : __t) +
-'\r\n</div>';
-
-}
-return __p
-};
-
-this["JST"]["app/scripts/Projectinfo/UserProjectInfoTpl.ejs"] = function(obj) {
-obj || (obj = {});
-var __t, __p = '', __e = _.escape;
-with (obj) {
-__p += '<div>\r\n    ' +
-((__t = ( title )) == null ? '' : __t) +
-'\r\n    ' +
-((__t = ( description )) == null ? '' : __t) +
-'\r\n    ' +
-((__t = ( role )) == null ? '' : __t) +
-'\r\n</div>';
-
-}
-return __p
-};
-
 this["JST"]["app/scripts/Projects/ProjectsCollectionTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -469,6 +437,34 @@ __p += '<span>\r\n    ' +
 '\r\n    ' +
 ((__t = ( last_name )) == null ? '' : __t) +
 '\r\n</span>';
+
+}
+return __p
+};
+
+this["JST"]["app/scripts/UserInfo/UserInfoTpl.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div>\r\n    Name: <b>' +
+((__t = ( first_name )) == null ? '' : __t) +
+' </b>\r\n    Surname: <b>' +
+((__t = ( last_name )) == null ? '' : __t) +
+' </b>\r\n</div>\r\n<br />\r\n    <p> User\'s Projects</p>\r\n\r\n\t\r\n\t';
+
+}
+return __p
+};
+
+this["JST"]["app/scripts/UserInfo/UserProjectInfoTpl.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '\r\n<div>\r\n    Project: <b> ' +
+((__t = ( title )) == null ? '' : __t) +
+' </b>\r\n \r\n    role: <b> ' +
+((__t = ( role )) == null ? '' : __t) +
+' </b>\r\n\t<br />\r\n</div>';
 
 }
 return __p

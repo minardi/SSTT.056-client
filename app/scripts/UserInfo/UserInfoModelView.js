@@ -2,37 +2,33 @@
 
 (function(module) {
         
-    module.ModelView = Backbone.View.extend({    
+    module.ModelView = Backbone.View.extend({   
+
+        tagName: "div",	
 
         template: {
-			"user_info": JST['app/scripts/UserInfo/UserInfoTpl.ejs'],
+		    "user_info": JST['app/scripts/UserInfo/UserInfoTpl.ejs'],
 			"user_project_info": JST['app/scripts/UserInfo/UserProjectInfoTpl.ejs']
-        },       
-         
-		el: $(".main"),
-		 
-		initialize: function () {
-		    this.render();
-		},
-		
-        render: function(model, type) {
-            var template = this.template[type];
-				
-            this.$el.html(template(model.toJSON()));
-			
-			model.on("sync", this.renderProjectRoles, this);
-			model.fetch();
-			
-            return this;
         },
 		
-        renderProjectRoles: function (model, type) {
-
-		    var template = this.template[type];
-
-            this.$el.append(template(model.toJSON()));
-            return this;
-		}
+		initialize: function () {
+		    this.collection = new module.Collection(this.model.id);
+			
+            this.collection.on('add', this.renderOne, this);
+		},
+		
+        render: function() {
+            this.$el.html(this.template["user_info"](this.model.toJSON()));
+	
+			return this;
+        },
+			
+		renderOne: function (user) {	
+          			
+            this.$el.append(this.template["user_project_info"](user.toJSON()));
+			
+		return this;
+        }
 	
   });
     

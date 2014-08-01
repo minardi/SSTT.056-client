@@ -13,13 +13,14 @@
         template: JST['app/scripts/TeamCandidates/TeamCandidatesTpl.ejs'],   
 		
 		subscriptions: {
-            "TeamEditPage:RoleSetUp": "setRole" 
+            "TeamEditPage:RoleSetUp": "setRole",
+            "TeamMembers:DeleteRole": "deleteRole"
         },
 		
 		 events: {
-            "dbclick": "setTeamMember", 
+            "dblclick": "setTeamMember", 
 			"click" : "showUserInfo"
-        },
+		},	
 
         initialize: function() {
             this.model.on("change", this.render, this);
@@ -43,10 +44,14 @@
         setRole: function(current_role) { 
             this.role = current_role;
         },
-		
+
 		showUserInfo: function () {
-		    mediator.pub("TeamMember:Selected", this.model, "user_info");
-		}
+		    mediator.pub("TeamMember:TeamMemberSelected", this.model);
+		},
+        
+        deleteRole: function () {
+            this.model.set("role", "");
+        }
 		
     });
 

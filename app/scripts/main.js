@@ -23,8 +23,7 @@ var sstt = {
         Confirmation: {},
 		UserInfo:{},
 		InfoBlock:{},
-        Chart: 
-		
+        Chart: {},
         empty: {}
     };
 
@@ -81,6 +80,10 @@ $(function() {
     sstt.chart = new app.Chart.ModelView();
     
     sstt.statistics = new app.Statistics.CollectionView();
+	
+	sstt.infoblock = new app.InfoBlock.ModelView({
+		el: $(".main")
+	});
 
     sstt.confirmation = new app.Confirmation.ModelView({
         el: $('.message-container')
