@@ -8,7 +8,7 @@
         
         template: {
             "backlog_item": JST['app/scripts/Projectinfo/BacklogItemInfoTpl.ejs'],
-            "project": JST['app/scripts/Projectinfo/ProjectinfoTpl.ejs']
+            "project": JST['app/scripts/Projectinfo/ProjectinfoTpl.ejs'],
         },       
         
         subscriptions: {

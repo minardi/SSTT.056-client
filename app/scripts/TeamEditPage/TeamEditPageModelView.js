@@ -14,7 +14,7 @@
         },
 
         subscriptions: {         
-            "TeamPage:TeamSelected": "render",
+            "Team:TeamOpened": "render",
             "ContextMenu:Back": "removeTeamPage",
             "ContextMenu:BackFromTeamEditPage": "removeTeamPage"
         }, 
