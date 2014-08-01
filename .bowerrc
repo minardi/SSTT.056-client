@@ -1,3 +1,9 @@
 {
+<<<<<<< HEAD
     "directory": "app/bower_components"
 }
+=======
+    "directory": "bower_components",
+    "json": "bower.json"
+}
+>>>>>>> 193ce10132247408be6626f291a89a1176ff3c39

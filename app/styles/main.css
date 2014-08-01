@@ -1,8 +1,880 @@
 body {
-    background: #fafafa;
+    font-family: sans-serif;
+    background: url(../images/bg.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.app-wrapper {
+    position: relative;
+    top: 0; 
+    margin: 0px auto;
+    max-width: 1220px;
+    min-width: 560px;
+    
+    border-radius:0;
+    background-color: rgba(255, 255, 60, 0.3);
+}
+
+ .b-header {
+    height: 75px;
+    line-height: 75px;
+    margin-bottom: 30px;
+    padding-right:25px;
+    text-align: right;
+     background: url(../images/logo.png) no-repeat;
+    background-color: rgba(250,167,25,1);
+   
+}
+
+.app-wrapper .user {
+    padding-right: 20px;
+}
+
+/* Sidebar Block
+_______________________________________________________*/
+
+.app-wrapper .b-sidebar {
+    float: left;
+    width: 200px;
+     position: absolute;
+     
+    top: 105px;
+    left:30px;
+}
+
+
+.app-wrapper .b-sidebar .info  {
+    height: 300px;
+    border-radius: 0px;
+
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    background-color: rgba(255,255,255, 1);
+    
+   
+
+}
+
+.app-wrapper .b-sidebar .info .title {
+    padding: 0 0 5px 0px;
+    text-align:center;
+    font-weight:100;
+    font-size: 22px;
+    font-weight:bold;
+    margin:0 auto;
+    background-color:rgba(0,127,196,1);
+    color:white;
+}
+
+.app-wrapper .b-sidebar .info .main {
+    padding: 10px;
+}
+
+/*ContextMenu*/
+
+.app-wrapper .b-sidebar .ContextMenu {
+    display: inline-block;
+    margin: 20px 0 0 0;
+    border-radius: 0px;
+    background-color: white;
+    opacity: 0.8;
+    vertical-align: middle;
+}
+
+.app-wrapper .b-sidebar .ContextMenu button {
+    margin: 4px;
+    padding: 10px 23px 10px 12px;
+}
+
+.icon-team:before {
+    font-weight: 900;
+    content: 'T';
+}
+
+
+
+
+/* Main Block
+_________________________________________________________*/
+
+.app-wrapper .b-main {
+    min-height: 600px;
+    margin-left: 240px;
+    margin-right:30px;
+}
+
+.app-wrapper .b-main .title {
+    padding: 0 0 10px 20px;
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+    
+    font-size: 24px;
+    text-align:center;
+}
+
+.app-wrapper .b-main .title .actions {
+    float: right;
+    text-align:center;
+}
+
+.app-wrapper .b-main .content {
+    height: 90%;
+    padding: 20px 0 0 20px;
+    overflow-y: auto;
+}
+
+
+.hiddenProjects > .project-page,
+.hiddenTeams > .team-page {
+    display: none;
+}
+
+
+
+/*Project Page  & Team Page
+________________________________________________*/
+.app-wrapper .b-main .content .box {
+    float: left;
+    width: 200px;
+    height: 150px;
+    margin: 0 35px 20px 0;
+    text-align: center;
+    border-radius: 0px;
+    background-color: rgba(255,255,255,1);
+    cursor: pointer;
+   
+}
+
+.app-wrapper .b-main .content .box:hover {
+    background-color: rgba(255,255,255,1);
+     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.app-wrapper .b-main .content .box .name {
+    font-size: 16px;
+    text-align: center;
+    background-color: rgba(0,127,196,1);
+    padding:5px;
+    color:white;
+}
+
+.app-wrapper .b-main .content .box .name:hover {
+    background-color: rgba(0,127,196,1);
+}
+
+/*Planing&Sprint block
+________________________________________________*/
+.app-wrapper .b-main .content .backlog-box {
+    min-height: 300px;
+    width: 40%;
+    
+    border-radius: 0px;
+    background-color: rgba(255,255,255,0.8);
+    box-shadow: 0px 0px 10px rgba(160, 220, 160, 1);
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+
+.app-wrapper .b-main .content .product-backlog {
+    float: left;
+    margin-left:50px;
+}
+
+.app-wrapper .b-main .content .sprint-backlog {
+    float: right;
+    margin-right:50px;
+}
+
+.story-box {
+    margin: 5px 20px;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px rgba(0,0,0, 0.3);
+    background-color: rgba(255,255,255,0.3);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0px;
+  text-align: center;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+.app-wrapper .b-main .content .backlog-box-name{ 
+    font-size: 18px;
+    text-align: center;
+    background-color: rgba(0,127,196,1);
+    opacity: 0.9;
+    color:white;
+}
+
+.app-wrapper .b-main .content .backlog-box-actions{
+    float: right;
+}
+
+.task-box {
+  width: 160px;
+  opacity: 0.5;
+  margin: 5px 20px;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px rgba(0,0,0, 0.3);
+    background-color: rgba(255,255,255,0.3);
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0px;
+  text-align: center;
+    vertical-align: middle;
+}
+
+.btn-new-story{
+    height: 25px;
+    /*background-color: #39b3d7;
+    border-color: #269abc;*/
+    border-radius: 0px 0 0 0px;
+     background-color: rgba(250,167,25,1);
+    border: 1px solid #122F5A;
+    color: #FFF;
+}
+
+.btn-new-story:hover {
+    color: #fff;
+    background-color: #39b3d7;
+    border-color: #269abc;
+}
+
+.btn-new-task{
+    height: 25px;
+    /*background-color: #39b3d7;
+    border-color: #269abc;*/
+    border-radius: 0px 0 0 0px;
+    background-color: #0063E2;
+    border: 1px solid #122F5A;
+    color: #FFF;
+  float: right;
+}
+
+.btn-new-task:hover {
+    color: #fff;
+    background-color: #39b3d7;
+    border-color: #269abc;
+}
+
+
+/*Scrum page block
+______________________________________*/
+a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.app-wrapper .b-main .scrum-page-header {
+    height: 48px;
+    font-size: 24px;
+}
+
+.app-wrapper .b-main .tab {
+    cursor: pointer;
+    text-align: center;
+    background-color: rgba(255,255,255,0.4);
+}
+
+.app-wrapper .b-main .tab:hover {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.start
+/*SCRUM-board block
+________________________________________________*/
+
+
+.scrum-tab {
+    display: inline-block;
+    width: 32%;
+    border-radius: 50px;
+}
+
+.active-tab {
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+}
+
+.tasks-header {
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid rgba(0,0,0,0.6);
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+}
+
+.header-todo,
+.header-in-progress,
+.header-to-verify,
+.header-done {
+    font-size: 1.4em;
+    float: left;
+    display: inline-block;
+    width: 25%;
+    border-right: 2px solid rgba(0,0,0,0.6);;
+}
+
+.tasks-header .last,
+.tasks .last {
+    border-right: 0px;
+}
+
+.tasks {
+    padding: 10px;
+    text-align: center;
+}
+
+.todo,
+.in-progress,
+.to-verify,
+.done {
+    float:left;
+    display: inline-block;
+    width: 25%;
+    border-right: 2px solid rgba(0,0,0,0.6);;
+    min-height: 200px;
+    text-align: center;
+}
+
+.task {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    word-wrap: break-word;
+    width: 90%;
+    border: 2px solid rgba(0,0,0,0.6);;    
+    background-color: rgba(187,221,187,0.7);
+}
+
+.task:hover {
+    box-shadow: 0 0 20px rgba(20,100,20,0.9);
+}
+
+.left .task .arrow-left{
+    display: none;
+}
+
+.right .task .arrow-right{
+    display: none;
+}
+
+
+.arrow-left, .arrow-right {
+    opacity: 0.5;
+    position: absolute;
+    height: 100%;
+    cursor: pointer;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    opacity: 1;
+}
+
+.arrow-left {
+    top: 0;
+    left: 0;
+    border-right: 2px solid rgba(0,0,0,0.6);
+    
+}
+
+.arrow-right {
+    top: 0;
+    right: 0;
+    border-left: 2px solid rgba(0,0,0,0.6);
+}
+/*TeamEditPage block
+_________________________________________________*/
+a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/*.app-wrapper .b-main*/
+.team-edit-page-header  {
+    height: 48px;
+    font-size: 24px;
+}
+
+.tab {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.4);
+}
+
+.tab:hover {
+    background-color: rgba(255,255,255,0.8);
+}
+
+.candidates, .team-members {
+    display: inline-block;
+    min-height: 230px;
+    width: 40%;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background-color: rgba(187,221,187,0.7);
+    box-shadow: 0px 0px 10px rgba(158, 221, 158, 0.7);
+    opacity: 0.8;
+}
+.users-box-name {
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 2px solid rgba(0,0,0,0.6);
+    opacity: 0.9;
+} 
+
+.user-box {
+    margin: 5px 20px;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px rgba(0,0,0, 0.3);
+    background-color: rgba(255,255,255,0.3);
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: color .0.4s ease-out, 0.4s ease-in;
+}
+
+.user-box:hover {
+    color: #7744E4;}
+
+
+/* TeamMembers Page
+____________________________________________*/
+
+.team-members {
+    position: relative;
+    float: right;
+    min-height: 230px;
+    width: 40%;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background-color: rgba(187,221,187,0.7);
+    box-shadow: 0px 0px 10px rgba(158, 221, 158, 0.7);
+    opacity: 0.8;
+}
+
+.watcher {
+    border: 1px black solid;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.developer {
+    border: 1px black solid;
+    border-radius: 3px;
+     margin: 5px;
+}
+
+.techlead {
+    border: 1px black solid;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.list {
+    overflow: auto;
+}
+
+#save {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+}
+
+#save_confirm {
+    margin-top: 50px;
+    width: 40%;
+    height: 15%;
+    padding: 10px;
+    background-color: rgba(173,166,159,.86);
+    border-radius: 10px;
+    opacity: .6;
+    float: right;
+}
+
+.shown {
+    display: block;
+}
+/* Extract class
+____________________________________________*/
+
+.hidden {
+    display: none;
+}
+
+a:visited {
+    color: white;
+}
+
+.btn-info {
+    background-color: #0063E2;
+    border-color: #122F5A;
+}
+
+.app-wrapper .b-sidebar .ContextMenu {
+    background-color: rgba(180,220,180,.6);
+    box-shadow: 0 0 10px rgba(0,0,0,.8);
+}
+
+/*=======dash board==============*/
+.back:before{
+    content: "\e091";
+}
+
+.team:before{
+    content: "T";
+}
+
+.config:before{
+    content: "\e136";
+}
+
+.delete:before{
+    content: "\e014";
+}
+/*======end dash board===========*/
+
+/*BacklogItemEdit*/
+.edit-backlog-item, .stop-sprint-confirm, .message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 6;
+    margin: -250px 0 0 -150px;
+    background-color: #ddeedd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.8);
     width: 300px;
+    padding: 15px;
+
+}
+
+.edit-backlog-item .legend,
+.message-container .legend {
+  display: block;
+  margin-top: 10px;
+}
+
+.edit-backlog-item .message,
+.message-container .message {
+  display: block;
+  margin-top: 25px;
+}
+
+.edit-backlog-item .error-box {
+  margin-top: 10px;
+}
+
+.stop-sprint-confirm {
+    z-index: 10;
+    margin: -150px 0 0 -100px;
+    width: 250px;
+}
+
+textarea {
+    resize: none;
+    min-height: 60px;
+    min-width: 250px;
+    margin-bottom: 10px;
+}
+
+.cancel_button, .save_button {
+    margin: 10px 0 10px 30px;
+}
+
+p {
+    font-size: 16px;
+}
+
+.blank {
+    border: 1px solid red;
+}
+/*BacklogItemEdit end*/
+
+/*edit team page*/
+.active-role{
+    background-color: #FFF !important;
+}
+
+/*ProductBacklog*/
+
+.btn-new-story {
+    margin-bottom: 0;
+    line-height: normal;
+}
+
+.story-box {
+    overflow: hidden;
+}
+
+.story-delete-btn {
+    float: right;
+    height: 22px;
+    width: 22px;
+    padding: 0;
+    border-radius: 0;
+}
+/*ProductBacklog end*/
+
+.start-sprint{
+    float: right;
+    clear: both;
+    margin-top: 2px;
+}
+
+.story-box:hover{
+    box-shadow: 0 0 10px rgba(20,100,20,.9);
+}
+
+.stop-sprint {
+    float: right;
+}
+
+/*DatePicker*/
+
+.datepicker {
+  top: 0;
+  left: 0;
+  padding: 4px;
+  margin-top: 1px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  /*.dow {
+    border-top: 1px solid #ddd !important;
+  }*/
+
+}
+.datepicker:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -7px;
+  left: 6px;
+}
+.datepicker:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  position: absolute;
+  top: -6px;
+  left: 7px;
+}
+.datepicker > div {
+  display: none;
+}
+.datepicker table {
+  width: 100%;
+  margin: 0;
+}
+.datepicker td,
+.datepicker th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.datepicker td.day:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+.datepicker td.day.disabled {
+  color: #eeeeee;
+}
+.datepicker td.old,
+.datepicker td.new {
+  color: #999999;
+}
+.datepicker td.active,
+.datepicker td.active:hover {
+  color: #ffffff;
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #0044cc;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td.active:hover,
+.datepicker td.active:hover:hover,
+.datepicker td.active:focus,
+.datepicker td.active:hover:focus,
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td.active.disabled,
+.datepicker td.active:hover.disabled,
+.datepicker td.active[disabled],
+.datepicker td.active:hover[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active {
+  background-color: #003399 \9;
+}
+.datepicker td span {
+  display: block;
+  width: 47px;
+  height: 54px;
+  line-height: 54px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.datepicker td span:hover {
+  background: #eeeeee;
+}
+.datepicker td span.active {
+  color: #ffffff;
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #0044cc;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td span.active:hover,
+.datepicker td span.active:focus,
+.datepicker td span.active:active,
+.datepicker td span.active.active,
+.datepicker td span.active.disabled,
+.datepicker td span.active[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+.datepicker td span.active:active,
+.datepicker td span.active.active {
+  background-color: #003399 \9;
+}
+.datepicker td span.old {
+  color: #999999;
+}
+.datepicker th.switch {
+  width: 145px;
+}
+.datepicker th.next,
+.datepicker th.prev {
+  font-size: 18px;
+}
+.datepicker thead tr:first-child th {
+  cursor: pointer;
+}
+.datepicker thead tr:first-child th:hover {
+  background: #eeeeee;
+}
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+  display: block;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/*-------------end DatePicker----------*/
+
+.centered-block {
+  text-align: center;
+}
+ 
+/* The ghost, nudged to maintain perfect centering */
+.centered-block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* The element to be centered, can
+   also be of any width and height */ 
+.centered-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+.burndown-chart {
+  width: 100%;
+  height: 450px;
+}
+
+.burndown-chart-tooltip {
+  position: absolute;
+  display: none;
+  border: 1px solid #fdd;
+  padding: 2px;
+  background-color: #fefefe;
+  opacity: 0.80;
+}
+
+.app-wrapper .b-main .content {
+  min-height: 400px;
 }
