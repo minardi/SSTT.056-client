@@ -56,6 +56,7 @@
         },
 		
 		showUserInfo: function () {
+			this.model.id = this.model.get("user_id");
 			mediator.pub("TeamMember:Selected", this.model);
 		}
 

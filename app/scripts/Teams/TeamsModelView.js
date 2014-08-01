@@ -11,11 +11,16 @@
         template: JST['app/scripts/Teams/TeamsTpl.ejs'],
         
         events: {
-            "dblclick": "selectTeam",
+            "dblclick": "openTeam",
+			"click": "selectTeam"
         },
+		
+		selectTeam: function() {
+			mediator.pub("Team:TeamSelected", this.model, "team");
+		},
 
-        selectTeam: function() {
-            mediator.pub("TeamPage:TeamSelected", this.model.id);
+        openTeam: function() {
+            mediator.pub("Team:TeamOpened", this.model.id);
         },
 
         render: function() {

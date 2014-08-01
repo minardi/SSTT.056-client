@@ -1,7 +1,7 @@
 /* InfoBlock */
 
 (function(module) {
-        
+
     module.ModelView = Backbone.View.extend({    
 		currentBlock: {},
 		
@@ -9,10 +9,11 @@
 			"ScrumBoard:TaskClick": "infoTask",
 			"ProjectPage:ProjectChecked": "infoProject",
 			"ProductBacklog:SelectedStory": "infoBacklogItem",
- 			"module:deselectAllUnits" : "changeInfo",
-			"TeamMember:Selected": "userInfo"
+			"TeamMember:Selected": "userInfo",
+			"Team:TeamSelected": "teamInfo",
+ 			"module:deselectAllUnits" : "changeInfo"
 		},
-		
+			
 		showInfo: function (instance) {
 		    this.currentBlock.remove && this.currentBlock.remove();
 			this.currentBlock = instance;
@@ -20,7 +21,7 @@
 		},
 		
 		userInfo: function (info_model) {
-		this.showInfo(new app.UserInfo.ModelView ({
+			this.showInfo(new app.UserInfo.ModelView ({
 				model: info_model
 			}));
 		},
@@ -29,7 +30,13 @@
 			this.showInfo(new app.TaskInfo.ModelView ({
 				model: info_model
 			}));
-		}, 
+		},
+		
+		teamInfo: function (info_model) {
+			this.showInfo(new app.TeamInfo.ModelView ({
+				model: info_model
+			}));
+		},
 		
 		infoProject: function (info_model) {
 			this.showInfo(new app.ProjectInfo.ModelView ({

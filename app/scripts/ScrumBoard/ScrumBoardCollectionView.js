@@ -9,7 +9,8 @@
         subscriptions: {
             "ScrumPage:ScrumBoardSelected": "initCollection",
             "ScrumBoard:TaskMoved": "renderOne",
-            "ScrumBoard:TaskReturnedToVerify": "reduceCompletedTasksNumber"
+            "ScrumBoard:TaskReturnedToVerify": "reduceCompletedTasksNumber",
+			"TaskInfo: getSprintName": "getSprintName"
         },
 
         events: {
@@ -34,15 +35,17 @@
             
             if (content_el) {
                 this.setElement(content_el).render();
-            }
+            };
+           
         },
 
         sprintInit: function(model) {
             if (this.content_el) {
                 this.setElement(this.content_el).render();
-            }
+            };
             
             this.initTasks();
+
         },
 
         initTasks: function () {
@@ -140,6 +143,11 @@
 			});
             mediator.pub("ScrumBoard:SprintWasStoped");
         },
+		
+		getSprintName: function () {
+			console.log(this.sprint);
+			 mediator.pub("ScrumBoard: getSprintName", this.sprint.get("title"));
+		}
 
     });
 
