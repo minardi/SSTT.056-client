@@ -9,7 +9,11 @@
         events: {
             "click .arrow-left": "moveLeft",
             "click .arrow-right": "moveRight",
+<<<<<<< HEAD
 			"click": "TaskClick"
+=======
+			"click": "taskInfo"
+>>>>>>> 8d639667d3924345d93d947af19523dca73b3470
         },
 		
         initialize: function (init_data) {
@@ -53,7 +57,7 @@
             }
         },
         
-        updateStatus: function() {
+        updateStatus: function () {
             this.model.set("status", this.status[this.current_status]);            
             this.model.save().success(_.bind(function () {
                 mediator.pub("ScrumBoard:TaskMoved", this.model);
@@ -61,9 +65,15 @@
             this.remove();
         },
 		
+<<<<<<< HEAD
 		TaskClick: function () {
 			mediator.pub("ScrumBoard:TaskClick", this.model);
 			
+=======
+		taskInfo: function (e) {
+			e.stopPropagation();
+			mediator.pub("ScrumBoard:TaskClick", this.model);
+>>>>>>> 8d639667d3924345d93d947af19523dca73b3470
 		}
 
     });

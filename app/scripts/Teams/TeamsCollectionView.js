@@ -8,7 +8,7 @@
 
         subscriptions: {
             "ContextMenu:Team": "initTeam",
-            "TeamPage:TeamSelected": "hide",
+            "Team:TeamOpened": "hide",
             "ContextMenu:Back": "removeTeamPage",
             "ContextMenu:BackFromTeamEditPage": "show"
         },

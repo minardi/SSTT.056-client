@@ -125,8 +125,8 @@
                 this.sprint.save({status: "done"});
 
                 sstt.confirmation.alert({
-                    title: "All tasks done",
-                    message: "Current sprint closed!",
+                    title: "All tasks are done!",
+                    message: "The Current sprint is closed",
                     confirmCallback: function() {
                         mediator.pub("ScrumPage:PlanningBoardSelected");
                         }

@@ -5,5 +5,9 @@
 =======
     "directory": "bower_components",
     "json": "bower.json"
+<<<<<<< HEAD
 }
 >>>>>>> 193ce10132247408be6626f291a89a1176ff3c39
+=======
+}
+>>>>>>> 8d639667d3924345d93d947af19523dca73b3470

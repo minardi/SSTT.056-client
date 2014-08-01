@@ -8,14 +8,19 @@ var sstt = {
         ScrumPage: {},
         ProductBacklog: {},
         SprintBacklog: {},
-        Projectinfo: {},
-        InfoBlock: {},
-        TaskInfo: {},
+
+		InfoBlock: {},
+        ProjectInfo: {},
+		TaskInfo: {},
+		BacklogItemInfo: {},
+
         ContextMenu: {},
         ScrumBoard: {},
         TeamEditPage: {},
+		TaskInfo: {},
         TeamCandidates: {},
         TeamMembers: {},
+		TeamInfo: {},
         Teams: {},        
         BacklogItem: {},
         BacklogItemEdit: {},
@@ -36,12 +41,16 @@ $(function() {
     sstt.projects = new app.Projects.CollectionView({
         el: $(".b-main")
     });
+	
+	sstt.info_block = new app.InfoBlock.ModelView({
+		el: $(".main")
+	});
 
     sstt.scrum_page = new app.ScrumPage.ModelView({
         el: $(".b-main")
     });
 
-    sstt.project_info = new app.Projectinfo.ModelView({
+    sstt.project_info = new app.ProjectInfo.ModelView({
         el: $(".main")
     });
 

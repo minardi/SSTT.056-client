@@ -1,4 +1,4 @@
-/* Projectinfo */
+/* ProjectInfo */
 
 (function(module) {
 
@@ -20,4 +20,6 @@
 
     });
 
+
 })(app.Projectinfo);
+

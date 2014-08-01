@@ -9,7 +9,7 @@
         tagName: "div",
 
         className: "story-box",
-		
+
 		selected: false,
 
         template: JST['app/scripts/ProductBacklog/ProductBacklogTpl.ejs'],
@@ -56,38 +56,38 @@
 
         storySelected: function(e) {
 			mediator.pub("module:UnitSelected", this.model, "backlog_item");
-			mediator.pub("ProductBacklog:SelectedStory");
+			mediator.pub("ProductBacklog:SelectedStory", this.model);
 
 			this.selected = true;
             this.$el.addClass('selected');
-			
+
 			e.stopPropagation();
         },
 
         removeStory: function() {	
-		
+
 			if (this.selected) {
                 this.model.destroy();
                 this.remove();
 			}
-			
+
 			sstt.confirmation.popup({
-					message: "Story has been removed."
+					message: "The Story has been removed"
 				});
 
         },
-		
+
 		deselectAll: function() {
 			this.selected = false;
             this.$el.removeClass('selected');
 		},
 
         showConfirm: function() {
-		
+
 			if (this.selected) {
 				sstt.confirmation.confirm({
-						title: "Delete Story?",
-						message: "Are You sure You want to delete Story??",
+					        title: "Delete the Story?",
+                                                message: "Are You sure You want to delete the Story?",
 						confirmCallback: (function(obj) {
 							return function() {
 								obj.removeStory();
