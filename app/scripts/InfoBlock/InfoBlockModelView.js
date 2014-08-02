@@ -42,6 +42,7 @@
 			this.showInfo(new app.ProjectInfo.ModelView ({
 				model: info_model
 			}));
+			this.$el.html(this.currentBlock.render().el);
 		}, 
 		
 		infoBacklogItem: function (info_model) {
