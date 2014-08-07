@@ -15,6 +15,9 @@ html, body {
 
 }
 
+li {
+  list-style:none;
+}
 .hide {
     display: none;
 }
@@ -107,6 +110,7 @@ _______________________________________________________*/
 .app-wrapper .b-sidebar .ContextMenu button {
     margin: 4px;
     padding: 8px 20px;
+    transition: color .0.2s ease-out, 0.2s ease-in;
 }
 
 .icon-team:before {
@@ -161,7 +165,7 @@ ________________________________________________*/
   padding:0;
   cursor: pointer;
   border:1px solid #a5a5a5;
-  margin:0 4%;
+  margin:10px 4%;
 }
 
 .app-wrapper .b-main .content .box:hover {
@@ -194,21 +198,22 @@ ________________________________________________*/
 }
 
 .story-box {
-    margin: 5px 20px;
    
-    width:90%;
+   
+    width:100%;
     
     font-size: 16px;
     cursor: pointer;
     border-radius: 0px;
     text-align: center;
     vertical-align: middle;
-    margin: 10px;
+    
 }
 
 .story-box:hover{
    background-color:#39b3d7;
    color: #FFF;
+   transition: color .0.4s ease-out, 0.4s ease-in;
 }
 .selected {
   font-weight: bold;
@@ -289,11 +294,13 @@ a {
 .app-wrapper .b-main .tab {
     cursor: pointer;
     text-align: center;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(242, 242, 242, 0.9);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+    color: rgba(54, 54, 54, 1);
 }
 
 .app-wrapper .b-main .tab:hover {
-    background-color: rgba(255,255,255,0.8);
+    font-weight: 700;
 }
 
 .start
@@ -354,17 +361,18 @@ ________________________________________________*/
 .task {
     position: relative;
     padding: 5px 10px;
-    border-radius: 5px;
+   color:#fff;
     margin-bottom: 10px;
     display: inline-block;
     word-wrap: break-word;
     width: 90%;
-    border: 2px solid rgba(0,0,0,0.6);;    
-    background-color: rgba(187,221,187,0.7);
+    border-radius:5px;
+    background-color: rgba(0, 155, 239, 1); 
 }
 
 .task:hover {
-    box-shadow: 0 0 20px rgba(20,100,20,0.9);
+    background-color: rgba(0, 116, 179, 1);
+     transition: color .0.3s ease-out, 0.3s ease-in;
 }
 
 .left .task .arrow-left{
@@ -424,52 +432,42 @@ a {
 }
 
 .candidates, .team-members {
-    display: inline-block;
-    min-height: 230px;
-    width: 40%;
-    border: 2px solid rgba(0,0,0,0.2);
-    border-radius: 5px;
-    background-color: rgba(187,221,187,0.7);
-    box-shadow: 0px 0px 10px rgba(158, 221, 158, 0.7);
-    opacity: 0.8;
+  text-align:center;
+  border:1px solid #a5a5a5;
+  margin:10px 4%;
+  background: #FFF;
+  min-height:150px;
+ 
+  padding:0;
 }
 .users-box-name {
-    font-size: 18px;
-    text-align: center;
-    border-bottom: 2px solid rgba(0,0,0,0.6);
-    opacity: 0.9;
+  font-size: 18px;
+  text-align: center;
+  background: #007FC4;
+  color: #FFF;
+  
 } 
 
 .user-box {
-    margin: 5px 20px;
-    border: 1px solid rgba(0,0,0,0.5);
-    box-shadow: 0px 0px 10px rgba(0,0,0, 0.3);
-    background-color: rgba(255,255,255,0.3);
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: color .0.4s ease-out, 0.4s ease-in;
+  margin:0 auto;
+  width:100%;
+  font-size:16px;
+  background-color: rgba(255,255,255,1);
+  text-align: center;
+  cursor: pointer;
+  transition: color .0.4s ease-out, 0.4s ease-in;
 }
 
 .user-box:hover {
-    color: #7744E4;}
+    background-color:#39b3d7;
+    color: #FFF;
+ }
 
 
 /* TeamMembers Page
 ____________________________________________*/
 
-.team-members {
-    position: relative;
-    float: right;
-    min-height: 230px;
-    width: 40%;
-    border: 2px solid rgba(0,0,0,0.2);
-    border-radius: 5px;
-    background-color: rgba(187,221,187,0.7);
-    box-shadow: 0px 0px 10px rgba(158, 221, 158, 0.7);
-    opacity: 0.8;
-}
+
 
 .watcher {
     border: 1px black solid;
@@ -556,18 +554,26 @@ a:visited {
     left: 50%;
     z-index: 6;
     margin: -250px 0 0 -150px;
-    background-color: #ddeedd;
-    border-radius: 10px;
+    background-color: #F5F5EB;
+   /*rgba(187, 150, 236, 1)*/
     box-shadow: 0 0 10px rgba(0,0,0,.8);
     width: 300px;
     padding: 15px;
 
 }
 
+.edit-backlog-item .title_edit,
+.message-container .title_edit {
+  display: block;
+  margin-top: 5px;
+  padding:0;
+  font-size: 18px;
+}
 .edit-backlog-item .legend,
 .message-container .legend {
   display: block;
   margin-top: 10px;
+  padding:0;
 }
 
 .edit-backlog-item .message,
@@ -870,4 +876,15 @@ p {
 
 .app-wrapper .b-main .content {
   min-height: 400px;
+}
+.teamMember {
+  font:14px;
+
+}
+.user_project {
+  display:block;
+  font-weight: 600;
+  padding:5px;
+
+
 }

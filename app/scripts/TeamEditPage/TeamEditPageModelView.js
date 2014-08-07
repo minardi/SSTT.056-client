@@ -31,23 +31,23 @@
 
         showWatchers: function() {            
             mediator.pub("TeamEditPage:RoleSetUp", "watcher");
-            $("#watchers").css("background-color", "white");
-            $("#developers").css("background-color", "none");
-            $("#techleads").css("background-color", "none");
+            $("#watchers").css("font-weight", "700");
+            $("#developers").css("font-weight", "200");
+            $("#techleads").css("font-weight", "200");
         },
 
         showDevelopers: function() {
             mediator.pub("TeamEditPage:RoleSetUp", "developer");
-            $("#watchers").css("background-color", "none");
-            $("#developers").css("background-color", "white");
-            $("#techleads").css("background-color", "none");
+            $("#watchers").css("font-weight", "200");
+            $("#developers").css("font-weight", "700");
+            $("#techleads").css("font-weight", "200");
         },
 
         showTeachLeads: function() {
             mediator.pub("TeamEditPage:RoleSetUp", "techlead");
-            $("#watchers").css("background-color", "none");
-            $("#developers").css("background-color", "none");
-            $("#techleads").css("background-color", "white");
+               $("#watchers").css("font-weight", "200");
+            $("#developers").css("font-weight", "200");
+            $("#techleads").css("font-weight", "700");
         },
 
         hideConfirm: function() {
