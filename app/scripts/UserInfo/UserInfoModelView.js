@@ -12,7 +12,14 @@
         },
 		
 		initialize: function () {
-		    this.collection = new module.Collection(this.model.id);
+		    var id;
+		    if (this.model.get("user_id")){
+			    id = this.model.get("user_id");
+			} else {
+			    id = this.model.id;
+			};
+			
+		    this.collection = new module.Collection(id);
 			
             this.collection.on('add', this.renderOne, this);
 		},
@@ -23,13 +30,11 @@
 			return this;
         },
 			
-		renderOne: function (user) {	
-          			
+		renderOne: function (user) {	      			
             this.$el.append(this.template["user_project_info"](user.toJSON()));
 			
-		return this;
+		    return this;
         }
-	
   });
     
 })(app.UserInfo);

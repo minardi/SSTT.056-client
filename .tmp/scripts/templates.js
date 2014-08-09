@@ -6,7 +6,7 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '    <span class = "title">Edit Sprint</span>\r\n\r\n    <span class = "legend">Title*:</span>\r\n    <input class = "input required" type = "text" name = "title" value = "' +
 ((__t = ( title )) == null ? '' : __t) +
-'"/>\r\n\r\n    <span class = "legend">Description:</span>\r\n    <textarea class = "input" size = 300 name = "description"></textarea>\r\n\r\n    <div class="input-daterange">\r\n\r\n        <span class = "legend">Start*:</span>\r\n        <input class = "input start-date required calendar" type = "text" name = "start" readonly="true" />\r\n\r\n        <span class = "legend">End*:</span>\r\n        <input class = "input end-date required calendar" type = "text" name = "end" readonly="true" />\r\n\r\n    </div>\r\n    \r\n    <div class = "save_button btn btn-default">Start sprint</div>\r\n    <div class = "cancel_button btn btn-default">Cancel</div>\r\n\r\n    <div class = "error-box"></div>\r\n\r\n';
+'"/>\r\n\r\n    <span class = "legend">Description:</span>\r\n    <textarea class = "input" size = 300 name = "description"></textarea>\r\n\r\n    <div class="input-daterange">\r\n\r\n        <span class = "legend">Start*:</span>\r\n        <input class = "input start-date required calendar" type = "text" name = "start" readonly="true" />\r\n\r\n        <span class = "legend">End*:</span>\r\n        <input class = "input end-date required calendar" type = "text" name = "end" readonly="true" />\r\n\r\n    </div>\r\n    \r\n    <div class = "save_button btn btn-default">Start sprint</div>\r\n    <div class = "cancel_button btn btn-default">Cancel</div>\r\n\r\n    <div class = "error-box"></div> \r\n\r\n';
 
 }
 return __p
@@ -39,6 +39,27 @@ __p += '    <span class = "title">Edit Task</span>\r\n    <span class = "legend"
 '</textarea>\r\n\r\n    <span class = "legend">Estimation*:</span>\r\n    <input class = "input required" type = "text" name = "estimation" value = "' +
 ((__t = ( estimation )) == null ? '' : __t) +
 '"/>\r\n\r\n    <div class = "save_button btn btn-default">Save</div>\r\n    <div class = "cancel_button btn btn-default">Cancel</div>\r\n\r\n    <div class = "error-box"></div>';
+
+}
+return __p
+};
+
+this["JST"]["app/scripts/BacklogItemInfo/BacklogItemInfoTpl.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '  <ul class="list-unstyled">\r\n    <li>Type: ' +
+((__t = ( item_type )) == null ? '' : __t) +
+'</li>\r\n    <li>Title: ' +
+((__t = ( title )) == null ? '' : __t) +
+'</li>\r\n    ';
+ if(description.trim().length) { 
+    	print ("<li>Description: " + description + "</li>");
+	} ;
+__p += '\r\n    <li>Estimation: ' +
+((__t = ( estimation )) == null ? '' : __t) +
+'</li>\r\n</ul>\r\n</div>';
 
 }
 return __p
@@ -146,32 +167,11 @@ __p += '<span>' +
 return __p
 };
 
-this["JST"]["app/scripts/Projectinfo/BacklogItemInfoTpl.ejs"] = function(obj) {
-obj || (obj = {});
-var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
-with (obj) {
-__p += '  <ul class="list-unstyled">\r\n    <li>Type: ' +
-((__t = ( item_type )) == null ? '' : __t) +
-'</li>\r\n    <li>Title: ' +
-((__t = ( title )) == null ? '' : __t) +
-'</li>\r\n    ';
- if(description.trim().length) { 
-    	print ("<li>Description: " + description + "</li>");
-	} ;
-__p += '\r\n    <li>Estimation: ' +
-((__t = ( estimation )) == null ? '' : __t) +
-'</li>\r\n</ul>\r\n</div>';
-
-}
-return __p
-};
-
-this["JST"]["app/scripts/Projectinfo/ProjectinfoTpl.ejs"] = function(obj) {
+this["JST"]["app/scripts/ProjectInfo/ProjectInfoTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '\r\n\t<ul class="list-unstyled">\r\n    <li>Description: ' +
+__p += '\r\n<ul class="list-unstyled">\r\n    <li>Description: ' +
 ((__t = ( description )) == null ? '' : __t) +
 '</li>\r\n    <li>DateStart: ' +
 ((__t = ( start )) == null ? '' : __t) +
@@ -232,8 +232,6 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="task">\r\n\t<div class="arrow-left centered-block"><div class="centered-text"><</div></div>\r\n\t' +
 ((__t = ( title )) == null ? '' : __t) +
-'<br>' +
-((__t = ( description )) == null ? '' : __t) +
 '\r\n\t<div class="arrow-right centered-block"><div class="centered-text">></div></div>\r\n</div>\r\n\r\n';
 
 }
@@ -347,6 +345,24 @@ __p +=
 return __p
 };
 
+this["JST"]["app/scripts/TaskInfo/InfoTaskTpl.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '\r\n\t<ul class="list-unstyled">\r\n\r\n\t\t<li><b>Current sprint name:</b> ' +
+((__t = ( sprint_name )) == null ? '' : __t) +
+'</li>\r\n\t\t<li><b>Task title:</b> ' +
+((__t = ( title )) == null ? '' : __t) +
+'</li>\r\n\t\t<li><b>Task estimation:</b> ' +
+((__t = ( estimation )) == null ? '' : __t) +
+'</li>\r\n\t\t\r\n\t\t<li><b>Task description:</b> ' +
+((__t = ( description )) == null ? '' : __t) +
+'</li>\r\n\r\n\t</ul>\r\n\r\n\r\n';
+
+}
+return __p
+};
+
 this["JST"]["app/scripts/TeamCandidates/TeamCandidatesCollectionTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
@@ -376,6 +392,34 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="team-edit-page-header nav team-edit-page">\r\n    <div class="col-xs-4 tab" id="watchers">Watchers</div>\r\n    <div class="col-xs-4 tab" id="developers">Developers</div>\r\n    <div class="col-xs-4 tab" id="techleads">TechLeads</div>\r\n</div>\r\n\r\n<div class="content team-edit-page">\r\n    <div class="candidates"></div>\r\n    <div class="team-members"></div>\r\n</div>\r\n\r\n';
+
+}
+return __p
+};
+
+this["JST"]["app/scripts/TeamInfo/TeamInfoTpl.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<ul class="list-unstyled">\r\n\t<li>Title: ' +
+((__t = ( title )) == null ? '' : __t) +
+'</li>\r\n\t<li>Description: ' +
+((__t = ( description )) == null ? '' : __t) +
+'</li>\r\n\t<li>Team members:</li>\r\n</ul>';
+
+}
+return __p
+};
+
+this["JST"]["app/scripts/TeamInfo/TeamMembersTpl.ejs"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<li>' +
+((__t = ( first_name )) == null ? '' : __t) +
+' ' +
+((__t = ( last_name )) == null ? '' : __t) +
+'</li>';
 
 }
 return __p

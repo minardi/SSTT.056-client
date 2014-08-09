@@ -8,11 +8,8 @@
             
         initialize: function() {
 		
-            this.projectsCollection = new module.Collection();//preloaded_projects);
-            this.listenTo(this.projectsCollection, "sync", this.render);
-            
-            this.projectsCollection.fetch();
-			//this.render();
+            this.projectsCollection = new module.Collection(preloaded_projects);
+			this.render();
         },
 
         subscriptions: {

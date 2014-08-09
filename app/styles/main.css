@@ -1,14 +1,14 @@
 body {
-    font-family: Arial, Georgia, Helvetica, sans-serif;
 
-/*    background: url(../images/bg.png); */
+    font-family: sans-serif;
+    background: url(../images/bg.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
 
 html, body {
@@ -23,24 +23,26 @@ html, body {
 .app-wrapper {
     position: relative;
     top: 0; 
-    margin: 50px auto;
+    margin: 0px auto;
     max-width: 1220px;
     min-width: 560px;
-    padding: 20px;
-    border: 4px solid black;
-    border-radius: 10px;
-    background-color: rgba(255,255,255,0.8);
+    
+    border-radius:0;
+    background-color: rgba(255, 255, 60, 0.3);
 }
 
-.app-wrapper .b-header {
-    height: 50px;
-    line-height: 50px;
+ .b-header {
+    height: 75px;
+    line-height: 75px;
     margin-bottom: 30px;
+    padding-right:25px;
     text-align: right;
-    background: url(../images/logo.png) no-repeat 10px 0;
+    background: url("../images/logo.png") no-repeat;
+    background-color: rgba(250,167,25,1);
+   
 }
 
-.app-wrapper .b-header .user {
+.app-wrapper .user {
     padding-right: 20px;
 }
 
@@ -50,20 +52,33 @@ _______________________________________________________*/
 .app-wrapper .b-sidebar {
     float: left;
     width: 200px;
-    
+     position: absolute;
+     
+    top: 105px;
+    left:30px;
 }
 
-.app-wrapper .b-sidebar .info {
+
+.app-wrapper .b-sidebar .info  {
     height: 300px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
-    background-color: rgba(220,220,140,0.7);
+    border-radius: 0px;
+
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    background-color: rgba(255,255,255,1);
+    
+   
+
 }
 
 .app-wrapper .b-sidebar .info .title {
-    padding: 0 0 10px 20px;
-    border-bottom: 2px solid rgba(0,0,0,0.6);
-    font-size: 24px;
+    padding: 0 0 5px 0px;
+    text-align:center;
+    font-weight:100;
+    font-size: 22px;
+    font-weight:bold;
+    margin:0 auto;
+    background-color:rgba(0,127,196,1);
+    color:white;
 }
 
 .app-wrapper .b-sidebar .info .main {
@@ -75,7 +90,7 @@ _______________________________________________________*/
 .app-wrapper .b-sidebar .ContextMenu {
     display: inline-block;
     margin: 20px 0 0 0;
-    border-radius: 5px;
+    border-radius: 0px;
     background-color: white;
     opacity: 0.8;
     vertical-align: middle;
@@ -100,16 +115,20 @@ _________________________________________________________*/
 .app-wrapper .b-main {
     min-height: 600px;
     margin-left: 240px;
+    margin-right:30px;
 }
 
 .app-wrapper .b-main .title {
     padding: 0 0 10px 20px;
     border-bottom: 2px solid rgba(0,0,0,0.6);
+    
     font-size: 24px;
+    text-align:center;
 }
 
 .app-wrapper .b-main .title .actions {
     float: right;
+    text-align:center;
 }
 
 .app-wrapper .b-main .content {
@@ -132,33 +151,40 @@ ________________________________________________*/
     float: left;
     width: 200px;
     height: 150px;
-    margin: 0 20px 20px 0;
-    border: 2px solid rgba(0,0,0,0.6);
-    border-radius: 5px;
-    background-color: rgba(180,220,180,0.6);
+    margin: 0 35px 20px 0;
+    text-align: center;
+    border-radius: 0px;
+    background-color: rgba(255,255,255,1);
     cursor: pointer;
+   
 }
 
 .app-wrapper .b-main .content .box:hover {
-    box-shadow: 0 0 20px rgba(20,100,20,0.9);
+    background-color: rgba(255,255,255,1);
+     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .app-wrapper .b-main .content .box .name {
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
-    border-bottom: 2px solid rgba(0,0,0,0.6);
+    background-color: rgba(0,127,196,1);
+    padding:5px;
+    color:white;
 }
 
+.app-wrapper .b-main .content .box .name:hover {
+    background-color: rgba(0,127,196,1);
+}
 
 /*Planing&Sprint block
 ________________________________________________*/
 .app-wrapper .b-main .content .backlog-box {
     min-height: 300px;
     width: 40%;
-    border: 2px solid rgba(0,0,0,0.6);
-    border-radius: 5px;
-    background-color: rgba(180,220,180,0.7);
-    box-shadow: 0px 0px 10px rgba(160, 220, 160, 0.6);
+    
+    border-radius: 0px;
+    background-color: rgba(255,255,255,0.8);
+    box-shadow: 0px 0px 10px rgba(160, 220, 160, 1);
 
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -168,11 +194,12 @@ ________________________________________________*/
 
 .app-wrapper .b-main .content .product-backlog {
     float: left;
+    margin-left:50px;
 }
 
 .app-wrapper .b-main .content .sprint-backlog {
     float: right;
-
+    margin-right:50px;
 }
 
 .story-box {
@@ -182,8 +209,8 @@ ________________________________________________*/
     background-color: rgba(255,255,255,0.3);
     font-size: 16px;
     cursor: pointer;
-    border-radius: 10px;
-	text-align: center;
+    border-radius: 0px;
+  text-align: center;
     vertical-align: middle;
     margin: 10px;
 }
@@ -195,8 +222,9 @@ ________________________________________________*/
 .app-wrapper .b-main .content .backlog-box-name{ 
     font-size: 18px;
     text-align: center;
-    border-bottom: 2px solid rgba(0,0,0,0.6);
+    background-color: rgba(0,127,196,1);
     opacity: 0.9;
+    color:white;
 }
 
 .app-wrapper .b-main .content .backlog-box-actions{
@@ -204,16 +232,16 @@ ________________________________________________*/
 }
 
 .task-box {
-	width: 160px;
-	opacity: 0.5;
-	margin: 5px 20px;
+  width: 160px;
+  opacity: 0.5;
+  margin: 5px 20px;
     border: 1px solid rgba(0,0,0,0.5);
     box-shadow: 0px 0px 10px rgba(0,0,0, 0.3);
     background-color: rgba(255,255,255,0.3);
     font-size: 14px;
     cursor: pointer;
-    border-radius: 10px;
-	text-align: center;
+    border-radius: 0px;
+  text-align: center;
     vertical-align: middle;
 }
 
@@ -221,8 +249,8 @@ ________________________________________________*/
     height: 25px;
     /*background-color: #39b3d7;
     border-color: #269abc;*/
-    border-radius: 3px 0 0 3px;
-    background-color: #0063E2;
+    border-radius: 0px 0 0 0px;
+     background-color: rgba(250,167,25,1);
     border: 1px solid #122F5A;
     color: #FFF;
 }
@@ -241,7 +269,7 @@ ________________________________________________*/
     background-color: #0063E2;
     border: 1px solid #122F5A;
     color: #FFF;
-	float: right;
+  float: right;
 }
 
 .btn-new-task:hover {
@@ -254,8 +282,8 @@ ________________________________________________*/
 /*Scrum page block
 ______________________________________*/
 a {
-	text-decoration: none;
-	font-size: 20px;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .app-wrapper .b-main .scrum-page-header {
@@ -850,5 +878,5 @@ p {
 }
 
 .app-wrapper .b-main .content {
-	min-height: 400px;
+  min-height: 400px;
 }

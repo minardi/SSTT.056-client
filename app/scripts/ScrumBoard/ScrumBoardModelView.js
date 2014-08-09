@@ -8,9 +8,11 @@
         
         events: {
             "click .arrow-left": "moveLeft",
-            "click .arrow-right": "moveRight"
-        },
+            "click .arrow-right": "moveRight",
+            "click": "TaskClick"
 
+        },
+		
         initialize: function (init_data) {
             this.status = ["todo", "progress", "verify", "done"];
             this.current_status = this.status.indexOf(this.model.get("status"));
@@ -52,13 +54,19 @@
             }
         },
         
-        updateStatus: function() {
+        updateStatus: function () {
             this.model.set("status", this.status[this.current_status]);            
             this.model.save().success(_.bind(function () {
                 mediator.pub("ScrumBoard:TaskMoved", this.model);
             }, this));
             this.remove();
-        }
+        },
+		
+
+		TaskClick: function (e) {
+            e.stopPropagation();
+			mediator.pub("ScrumBoard:TaskClick", this.model);
+		}
 
     });
 

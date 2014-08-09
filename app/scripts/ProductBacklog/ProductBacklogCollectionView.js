@@ -46,7 +46,7 @@
                                     model: story,
                                     permission: this.access_crud
                                 });
-
+			console.log(story_view.model);
             this.$list.append(story_view.render().el);
         },
 

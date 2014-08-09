@@ -7,11 +7,6 @@
         className: "user-box",
         
         template: JST['app/scripts/TeamMembers/TeamMembersTpl.ejs'],
-        
-		events: {
-		    "click": "showTeamMemberInfo",
-			"dblclick" : "deleteRole"
-		},
 		
         initialize: function() {
             this.model.on("change", this.show, this);
@@ -21,6 +16,11 @@
 
         subscriptions: {
             "TeamEditPage:roleSetUp": "setRole"
+        },
+        
+        events: {
+            "dblclick" : "deleteRole",
+			"click": "showUserInfo"
         },
        
         show: function() {
@@ -54,12 +54,10 @@
 
             return this;
         },
-				
-		showTeamMemberInfo: function () {
-		    mediator.pub("TeamMember:TeamMemberSelected", this.model);
-		}
 		
-
+		showUserInfo: function () {
+			mediator.pub("TeamMember:Selected", this.model);
+		}
     });
     
 })(app.TeamMembers);
