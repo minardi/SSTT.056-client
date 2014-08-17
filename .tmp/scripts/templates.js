@@ -4,7 +4,7 @@ this["JST"]["app/scripts/BacklogItemEdit/BacklogItemEditSprintTpl.ejs"] = functi
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '    <span class = "title">Edit Sprint</span>\r\n\r\n    <span class = "legend">Title*:</span>\r\n    <input class = "input required" type = "text" name = "title" value = "' +
+__p += '    <span class = "title_edit">Edit Sprint</span>\r\n\r\n    <span class = "legend">Title*:</span>\r\n    <input class = "input required" type = "text" name = "title" value = "' +
 ((__t = ( title )) == null ? '' : __t) +
 '"/>\r\n\r\n    <span class = "legend">Description:</span>\r\n    <textarea class = "input" size = 300 name = "description"></textarea>\r\n\r\n    <div class="input-daterange">\r\n\r\n        <span class = "legend">Start*:</span>\r\n        <input class = "input start-date required calendar" type = "text" name = "start" readonly="true" />\r\n\r\n        <span class = "legend">End*:</span>\r\n        <input class = "input end-date required calendar" type = "text" name = "end" readonly="true" />\r\n\r\n    </div>\r\n    \r\n    <div class = "save_button btn btn-default">Start sprint</div>\r\n    <div class = "cancel_button btn btn-default">Cancel</div>\r\n\r\n    <div class = "error-box"></div> \r\n\r\n';
 
@@ -16,7 +16,7 @@ this["JST"]["app/scripts/BacklogItemEdit/BacklogItemEditStoryTpl.ejs"] = functio
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '    <span class = "title">Edit Story</span>\r\n    <span class = "legend">Title*:</span>\r\n    <input class = "input required" type = "text" name = "title" value = "' +
+__p += '    <span class = "title_edit">Edit Story</span>\r\n    <span class = "legend">Title*:</span>\r\n    <input class = "input required" type = "text" name = "title" value = "' +
 ((__t = ( title )) == null ? '' : __t) +
 '"/>\r\n\r\n    <span class = "legend">Description:</span>\r\n    <textarea class = "input" size = 300 name = "description">' +
 ((__t = ( description )) == null ? '' : __t) +
@@ -32,7 +32,7 @@ this["JST"]["app/scripts/BacklogItemEdit/BacklogItemEditTaskTpl.ejs"] = function
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '    <span class = "title">Edit Task</span>\r\n    <span class = "legend">Title*:</span>\r\n    <input class = "input required" type = "text" name = "title" value = "' +
+__p += '    <span class = "title_edit">Edit Task</span>\r\n    <span class = "legend">Title*:</span>\r\n    <input class = "input required" type = "text" name = "title" value = "' +
 ((__t = ( title )) == null ? '' : __t) +
 '"/>\r\n\r\n    <span class = "legend">Description:</span>\r\n    <textarea class = "input" size = 300 name = "description">' +
 ((__t = ( description )) == null ? '' : __t) +
@@ -130,7 +130,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="backlog-box product-backlog">    \r\n</div>\r\n<div class="backlog-box sprint-backlog">\r\n</div>\r\n';
+__p += '<div class="backlog-box product-backlog col-lg-5 col-md-5 col-sm-5 col-xs-10">    \r\n</div>\r\n<div class="backlog-box sprint-backlog col-lg-5 col-md-5 col-sm-5 col-xs-10">\r\n</div>\r\n';
  if (role === "techlead") { ;
 __p += '\r\n     <div class="btn btn-info start-sprint" disabled>Start sprint</div>\r\n';
  } ;
@@ -167,7 +167,7 @@ __p += '<span>' +
 return __p
 };
 
-this["JST"]["app/scripts/ProjectInfo/ProjectInfoTpl.ejs"] = function(obj) {
+this["JST"]["app/scripts/Projectinfo/ProjectInfoTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
@@ -391,7 +391,7 @@ this["JST"]["app/scripts/TeamEditPage/TeamEditPageTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div class="team-edit-page-header nav team-edit-page">\r\n    <div class="col-xs-4 tab" id="watchers">Watchers</div>\r\n    <div class="col-xs-4 tab" id="developers">Developers</div>\r\n    <div class="col-xs-4 tab" id="techleads">TechLeads</div>\r\n</div>\r\n\r\n<div class="content team-edit-page">\r\n    <div class="candidates"></div>\r\n    <div class="team-members"></div>\r\n</div>\r\n\r\n';
+__p += '<div class="team-edit-page-header nav team-edit-page">\r\n    <div class="col-xs-4 tab" id="watchers">Watchers</div>\r\n    <div class="col-xs-4 tab" id="developers">Developers</div>\r\n    <div class="col-xs-4 tab" id="techleads">TechLeads</div>\r\n</div>\r\n\r\n<div class="content team-edit-page">\r\n    <div class="candidates col-lg-5 col-md-5 col-sm-5 col-xs-10"></div>\r\n    <div class="team-members col-lg-5 col-md-5 col-sm-5 col-xs-10"></div>\r\n</div>\r\n\r\n';
 
 }
 return __p
@@ -401,11 +401,11 @@ this["JST"]["app/scripts/TeamInfo/TeamInfoTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<ul class="list-unstyled">\r\n\t<li>Title: ' +
+__p += '<ul class="list-unstyled">\r\n\t<li><b>Title: </b>' +
 ((__t = ( title )) == null ? '' : __t) +
-'</li>\r\n\t<li>Description: ' +
+'</li>\r\n\t<li><b>Description: </b>' +
 ((__t = ( description )) == null ? '' : __t) +
-'</li>\r\n\t<li>Team members:</li>\r\n</ul>';
+'</li>\r\n\t<li><b>Team members: </b></li>\r\n</ul>';
 
 }
 return __p
@@ -415,11 +415,11 @@ this["JST"]["app/scripts/TeamInfo/TeamMembersTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<li>' +
+__p += '<li><span class = "teamMember">' +
 ((__t = ( first_name )) == null ? '' : __t) +
 ' ' +
 ((__t = ( last_name )) == null ? '' : __t) +
-'</li>';
+'</span></li>';
 
 }
 return __p
@@ -490,11 +490,11 @@ this["JST"]["app/scripts/UserInfo/UserInfoTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<div>\r\n    Name: <b>' +
+__p += '<div>\r\n    <b>Name: </b>' +
 ((__t = ( first_name )) == null ? '' : __t) +
-' </b>\r\n    Surname: <b>' +
+' \r\n   <br><b>Last name: </b>' +
 ((__t = ( last_name )) == null ? '' : __t) +
-' </b>\r\n</div>\r\n<br />\r\n    <p> User\'s Projects</p>\r\n\r\n\t\r\n\t';
+' \r\n</div>\r\n\r\n    <span class = "user_project">Active projects:</span>\r\n\r\n\t\r\n\t';
 
 }
 return __p
@@ -504,11 +504,11 @@ this["JST"]["app/scripts/UserInfo/UserProjectInfoTpl.ejs"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '\r\n<div>\r\n    Project: <b> ' +
+__p += '\r\n<div>\r\n    <b>Project: </b>' +
 ((__t = ( title )) == null ? '' : __t) +
-' </b>\r\n \r\n    role: <b> ' +
+' \r\n    <br><b> Role: </b>' +
 ((__t = ( role )) == null ? '' : __t) +
-' </b>\r\n\t<br />\r\n</div>';
+' \r\n</div>\r\n<br />';
 
 }
 return __p

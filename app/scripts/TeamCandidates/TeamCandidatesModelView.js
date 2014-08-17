@@ -6,7 +6,7 @@
 
         tagName: "div",
 
-        className: "user-box",
+        className: "user-box ",
         
         role: "developer", 
 

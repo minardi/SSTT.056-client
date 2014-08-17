@@ -6,7 +6,7 @@
 
         tagName: "div",
         
-        className: "box", 
+        className: "box col-lg-3 col-md-3 col-sm-5 col-xs-11", 
 
         template: JST['app/scripts/Teams/TeamsTpl.ejs'],
         
